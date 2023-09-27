@@ -201,9 +201,9 @@
         <div class="price-filter">
             <div class="price-filter-inner">
 
-      <div id="slider-range" class="price-filter-range" data-min="0" data-max="2000" ></div>
+      <div id="slider-range" class="price-filter-range" data-min="0" data-max="200000" ></div>
       <input type="hidden" id="price_range" name="price_range" value="">
-      <input type="text" id="amount" value="$0 - $2000" readonly="">
+      <input type="text" id="amount" value="$0 - $200000" readonly="">
 
     <br><br>
 
