@@ -21,6 +21,11 @@ class ShopController extends Controller
             $catIds = Category::select('id')->whereIn('category_slug',$slugs)->pluck('id')->toArray();
            $products = Product::whereIn('category_id',$catIds)->get();
         }
+        else if (!empty($_GET['brand'])) {
+            $slugs = explode(',',$_GET['brand']);
+            $brandIds = Brand::select('id')->whereIn('brand_slug',$slugs)->pluck('id')->toArray();
+           $products = Product::whereIn('brand_id',$brandIds)->get();
+        }
         else{
              $products = Product::where('status',1)->orderBy('id','DESC')->get();
          }
@@ -54,10 +59,21 @@ class ShopController extends Controller
         }
 
 
+ /// Filter For Brand
+
+ $brandUrl = "";
+ if (!empty($data['brand'])) {
+     foreach($data['brand'] as $brand){
+         if (empty($brandUrl)) {
+             $brandUrl .= '&brand='.$brand;
+         }else{
+             $brandUrl .= ','.$brand;
+         }
+     }
+ }
 
 
-
-        return redirect()->route('shop.page',$catUrl);
+        return redirect()->route('shop.page',$catUrl.$brandUrl);
 
     }// End Method
 }

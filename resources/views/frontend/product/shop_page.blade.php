@@ -244,7 +244,6 @@
 
     @endif
 
-
                 <label class="fw-900 mt-15">Brand</label>
    @foreach($brands as $brand)
    <div class="custome-checkbox">
