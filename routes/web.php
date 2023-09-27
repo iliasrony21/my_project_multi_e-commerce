@@ -505,6 +505,13 @@ Route::controller(IndexController::class)->group(function(){
     Route::post('/search-product' , 'SearchProduct');
 
    });
+   // Shop Page All Route
+Route::controller(ShopController::class)->group(function(){
+
+    Route::get('/shop' , 'ShopPage')->name('shop.page');
+    Route::post('/shop/filter' , 'ShopFilter')->name('shop.filter');
+
+   });
 
 
 //////////////////////////////////////// User All Route/////////////////////////////
