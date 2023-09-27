@@ -4,8 +4,8 @@
 @section('title')
    Shop Page
 @endsection
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
  <div class="page-header mt-30 mb-50">
             <div class="container">
                 <div class="archive-header">
@@ -223,18 +223,18 @@
     @endif
 
 
-                <label class="fw-900">Category</label>
-@foreach($categories as $category)
-@php
-$products = App\Models\Product::where('category_id',$category->id)->get();
-@endphp
+        <label class="fw-900">Category</label>
+            @foreach($categories as $category)
+                @php
+                $products = App\Models\Product::where('category_id',$category->id)->get();
+                @endphp
 
-    <div class="custome-checkbox">
-        <input class="form-check-input" type="checkbox" name="category[]" id="exampleCheckbox{{ $category->id }}" value="{{ $category->category_slug }}" @if(!empty($filterCat) && in_array($category->category_slug,$filterCat)) checked @endif  onchange="this.form.submit()" />
-        <label class="form-check-label" for="exampleCheckbox{{ $category->id }}"><span>{{ $category->category_name }} ({{ count($products) }})</span></label>
+                    <div class="custome-checkbox">
+                        <input class="form-check-input" type="checkbox" name="category[]" id="exampleCheckbox{{ $category->id }}" value="{{ $category->category_slug }}" @if(!empty($filterCat) && in_array($category->category_slug,$filterCat)) checked @endif onchange="this.form.submit()"  />
+                        <label class="form-check-label" for="exampleCheckbox{{ $category->id }}"><span>{{ $category->category_name }} ({{ count($products) }})</span></label>
 
-    </div>
-@endforeach
+                    </div>
+             @endforeach
 
 
     @if(!empty($_GET['brand']))

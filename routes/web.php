@@ -26,6 +26,7 @@ use App\Http\Controllers\Backend\SiteSettingController;
 use App\Http\Controllers\Backend\VendorOrderController;
 use App\Http\Controllers\Frontend\IndexController;
 use App\Http\Controllers\Frontend\CartController;
+use App\Http\Controllers\Frontend\ShopController;
 use App\Http\Controllers\User\AllUserController;
 use App\Http\Controllers\User\CheckoutController;
 use App\Http\Controllers\User\WishlistController;
