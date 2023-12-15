@@ -18,7 +18,7 @@
 
                     <div class="ms-auto">
 						<div class="btn-group">
-		                    <a href="{{ route('all.product') }}" class="btn btn-primary">All Product</a> 				 
+		                    <a href="{{ route('all.product') }}" class="btn btn-primary">All Product</a>
 						</div>
 					</div>
 				</div>
@@ -122,7 +122,7 @@
                                     <label for="inputCollection" class="form-label">Product SubCategory</label>
                                     <select name="subcategory_id" class="form-select" id="inputCollection">
                                         <option>Select Sub-Category</option>
-                                        
+
                                     </select>
                                 </div>
                                 <div class="col-12">
@@ -138,28 +138,28 @@
 
                                     <div class="row g-3">
 
-                                    <div class=" col-md-6">	
+                                    <div class=" col-md-6">
                                     <div class="form-check">
                                        <input class="form-check-input" name="hot_deals" type="checkbox" value="1" id="flexCheckDefault">
                                        <label class="form-check-label" for="flexCheckDefault"> Hot Deals</label>
                                     </div>
                                     </div>
 
-                                    <div class=" col-md-6">	
+                                    <div class=" col-md-6">
                                     <div class="form-check">
                                         <input class="form-check-input" name="featured" type="checkbox" value="1" id="flexCheckDefault">
                                         <label class="form-check-label" for="flexCheckDefault">Featured</label>
                                     </div>
                                     </div>
 
-                                    <div class=" col-md-6">	
+                                    <div class=" col-md-6">
                                     <div class="form-check">
                                         <input class="form-check-input" name="special_offer" type="checkbox" value="1" id="flexCheckDefault">
                                         <label class="form-check-label" for="flexCheckDefault">Special Offer</label>
                                     </div>
                                     </div>
 
-                                    <div class=" col-md-6">	
+                                    <div class=" col-md-6">
                                     <div class="form-check">
                                         <input class="form-check-input" name="special_deals" type="checkbox" value="1" id="flexCheckDefault">
                                         <label class="form-check-label" for="flexCheckDefault">Special Deals</label>
@@ -175,7 +175,7 @@
                                         <input type="submit" class="btn btn-primary px-4" value="Save Changes" />
                                     </div>
                                 </div>
-                            </div> 
+                            </div>
                             </form>
                         </div>
                         </div>
@@ -200,41 +200,41 @@
             </script>
 
         <!-- For Multi Image Show  -->
-            
-            <script> 
-            
+
+            <script>
+
             $(document).ready(function(){
             $('#multiImg').on('change', function(){ //on file input change
                 if (window.File && window.FileReader && window.FileList && window.Blob) //check File API supported browser
                 {
                     var data = $(this)[0].files; //this file data
-                    
+
                     $.each(data, function(index, file){ //loop though each file
-                        if(/(\.|\/)(gif|jpe?g|png|webp)$/i.test(file.type)){ //check supported file type
+                        if(/(\.|\/)(gif|jpe?g|png|webp|jpg)$/i.test(file.type)){ //check supported file type
                             var fRead = new FileReader(); //new filereader
                             fRead.onload = (function(file){ //trigger function on successful read
                             return function(e) {
                                 var img = $('<img/>').addClass('thumb').attr('src', e.target.result) .width(100)
-                            .height(100); //create image element 
+                            .height(100); //create image element
                                 $('#preview_img').append(img); //append image to output element
                             };
                             })(file);
                             fRead.readAsDataURL(file); //URL representing the file's data.
                         }
                     });
-                    
+
                 }else{
                     alert("Your browser doesn't support File API!"); //if File API is absent
                 }
             });
             });
-            
+
             </script>
 
             <!-- for select SubCategory from Category by AJAX -->
 
             <script type="text/javascript">
-                    
+
                     $(document).ready(function(){
                         $('select[name="category_id"]').on('change', function(){
                             var category_id = $(this).val();
@@ -265,34 +265,34 @@
                         rules: {
                             product_name: {
                                 required : true,
-                            }, 
+                            },
                             short_descp: {
                                 required : true,
-                            }, 
+                            },
                             product_thambnail: {
                                 required : true,
-                            }, 
+                            },
                             multi_img: {
                                 required : true,
-                            }, 
+                            },
                             selling_price: {
                                 required : true,
-                            },                   
+                            },
                             product_code: {
                                 required : true,
-                            }, 
+                            },
                             product_qty: {
                                 required : true,
-                            }, 
+                            },
                             brand_id: {
                                 required : true,
-                            }, 
+                            },
                             category_id: {
                                 required : true,
-                            }, 
+                            },
                             subcategory_id: {
                                 required : true,
-                            }, 
+                            },
                         },
                         messages :{
                             product_name: {
@@ -309,7 +309,7 @@
                             },
                             selling_price: {
                                 required : 'Please Enter Selling Price',
-                            }, 
+                            },
                             product_code: {
                                 required : 'Please Enter Product Code',
                             },
@@ -317,7 +317,7 @@
                                 required : 'Please Enter Product Quantity',
                             },
                         },
-                        errorElement : 'span', 
+                        errorElement : 'span',
                         errorPlacement: function (error,element) {
                             error.addClass('invalid-feedback');
                             element.closest('.form-group').append(error);
@@ -330,8 +330,8 @@
                         },
                     });
                 });
-                
+
             </script>
 
-           
+
 @endsection
